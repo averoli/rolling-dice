@@ -1,0 +1,72 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem 0;
+}
+
+article {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  opacity: 95%;
+  border: 3px solid #06b850;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+article h1 {
+  text-align: center;
+  color: #3d5656;
+  font-size: 3rem;
+}
+
+button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0062cc;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+table {
+  width: 80%;
+}
+
+.high-score {
+  color: #cd5047;
+  animation: flash 0.5s ease-in-out;
+}
+
+@keyframes flash {
+  0% {
+    color: #cd5047;
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: #cd5047;
+  }
+}
+
+th, td {
+    font-size: 3rem;
+    
+}
