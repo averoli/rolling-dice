@@ -1,6 +1,6 @@
 import "./App.css";
 import DiceRoller from "./dice_roller/DiceRoller";
-
+import "@picocss/pico"
 function App() {
 
   let numberOfDices = 3;

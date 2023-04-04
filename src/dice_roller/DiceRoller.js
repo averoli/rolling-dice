@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import TableScore from "../table_score/TableScore";
+import "@picocss/pico";
 import "./diceRoller.css";
 
 const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
@@ -28,9 +29,8 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
   useEffect(() => {
     updateHighScore(rollResult);
     if (rollsLeft === 0) {
-      onGameOver(highScore);
       setGameOver(true);
-      
+      onGameOver(highScore);
     }
   }, [rollResult, highScore, rollsLeft, onGameOver]);
 
@@ -46,13 +46,9 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
   const rollDice = () => {
     setRolling(true);
     setTimeout(() => {
-      try {
-        setRollResult(target);
-        setRollsLeft(rollsLeft - 1);
-        setRolling(false);
-      } catch (err) {
-        console.error(err);
-      }
+      setRollResult(target);
+      setRollsLeft(rollsLeft - 1);
+      setRolling(false);
     }, 1000);
   };
   return (

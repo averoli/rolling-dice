@@ -1,5 +1,6 @@
 import React from "react";
-import "./tableScore.css"
+import "@picocss/pico";
+import "./tableScore.css";
 
 const TableScore = ({
   targetScore,
