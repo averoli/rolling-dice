@@ -45,28 +45,24 @@ button:disabled {
   cursor: not-allowed;
 }
 
-table {
-  width: 80%;
-}
-
 .high-score {
-  color: #cd5047;
+  color: #1263f9;
   animation: flash 0.5s ease-in-out;
 }
 
 @keyframes flash {
   0% {
-    color: #cd5047;
+    color: #007bff;
   }
   50% {
     color: black;
   }
   100% {
-    color: #cd5047;
+    color: #007bff;
   }
 }
 
-th, td {
-    font-size: 3rem;
-    
+th,
+td {
+  font-size: 3rem;
 }

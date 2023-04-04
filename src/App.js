@@ -3,12 +3,21 @@ import { useState } from "react";
 import DiceRoller from "./DiceRoller";
 
 function App() {
-  const [numberOfDices, setNumberOfDices] = useState(2);
-  const [numberOfRolls, setNumberOfRolls] = useState(3);
 
+  let numberOfDices = 3;
+  let numberOfRolls = 4;
+  
   return (
     <div className="container-fluid">
-      <DiceRoller numberOfDices={numberOfDices} numberOfRolls={numberOfRolls} />
+      <main className="container">
+        <article>
+          <h1>Rolling the dice</h1>
+          <DiceRoller
+            numberOfDices={numberOfDices}
+            numberOfRolls={numberOfRolls}
+          />
+        </article>
+      </main>
     </div>
   );
 }
