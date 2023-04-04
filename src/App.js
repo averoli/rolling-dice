@@ -7,6 +7,10 @@ function App() {
   let numberOfDices = 3;
   let numberOfRolls = 4;
   
+  const handleGameOver = (highScore) => {
+    alert(`Game is over! Your high score is ${highScore}`)
+  }
+  
   return (
     <div className="container-fluid">
       <main className="container">
@@ -15,6 +19,7 @@ function App() {
           <DiceRoller
             numberOfDices={numberOfDices}
             numberOfRolls={numberOfRolls}
+            onGameOver={handleGameOver}
           />
         </article>
       </main>

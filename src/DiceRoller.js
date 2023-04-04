@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./diceRoller.css";
+import PropTypes from "prop-types";
 import TableScore from "./TableScore";
+import "./diceRoller.css";
 
-const DiceRoller = ({ numberOfDices, numberOfRolls }) => {
+const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
   let [rollsLeft, setRollsLeft] = useState(numberOfRolls);
   const [targetScore, setTargetScore] = useState(0);
   const [rollResult, setRollResult] = useState(0);
@@ -28,9 +29,9 @@ const DiceRoller = ({ numberOfDices, numberOfRolls }) => {
     updateHighScore(rollResult);
     if (rollsLeft === 0) {
       setGameOver(true);
-      alert(`Your final high score is ${highScore}`);
+      onGameOver(highScore);
     }
-  }, [rollResult, highScore, rollsLeft]);
+  }, [rollResult, highScore, rollsLeft, onGameOver]);
 
   const startSession = () => {
     setTargetScore(target);
@@ -50,29 +51,35 @@ const DiceRoller = ({ numberOfDices, numberOfRolls }) => {
         setRolling(false);
       } catch (err) {
         console.error(err);
-        setRolling(false);
       }
     }, 1000);
   };
   return (
     <>
       {targetScore > 0 && !gameOver ? (
-        <table>
-          <TableScore
-            targetScore={targetScore}
-            isHighScore={isHighScore}
-            highScore={highScore}
-            rollResult={highScore}
-            rollsLeft={rollsLeft}
-          />
+        <>
+          <table>
+            <TableScore
+              targetScore={targetScore}
+              isHighScore={isHighScore}
+              highScore={highScore}
+              rollResult={highScore}
+              rollsLeft={rollsLeft}
+            />
+          </table>
           <button onClick={rollDice} aria-busy={rolling}>
             ROLL DICE
           </button>
-        </table>
+        </>
       ) : (
         <button onClick={startSession}>START A NEW GAME</button>
       )}
     </>
   );
+};
+
+DiceRoller.propTypes = {
+  numberOfDices: PropTypes.number.isRequired,
+  numberOfRolls: PropTypes.number.isRequired,
 };
 export default DiceRoller;
