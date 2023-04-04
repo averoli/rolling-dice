@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import TableScore from "./TableScore";
+import TableScore from "../table_score/TableScore";
 import "./diceRoller.css";
 
 const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
@@ -28,8 +28,9 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
   useEffect(() => {
     updateHighScore(rollResult);
     if (rollsLeft === 0) {
-      setGameOver(true);
       onGameOver(highScore);
+      setGameOver(true);
+      
     }
   }, [rollResult, highScore, rollsLeft, onGameOver]);
 
@@ -55,26 +56,29 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
     }, 1000);
   };
   return (
-    <>
-      {targetScore > 0 && !gameOver ? (
-        <>
-          <table>
-            <TableScore
-              targetScore={targetScore}
-              isHighScore={isHighScore}
-              highScore={highScore}
-              rollResult={highScore}
-              rollsLeft={rollsLeft}
-            />
-          </table>
-          <button onClick={rollDice} aria-busy={rolling}>
-            ROLL DICE
-          </button>
-        </>
-      ) : (
-        <button onClick={startSession}>START A NEW GAME</button>
-      )}
-    </>
+    <main className="container">
+      <article>
+        <h1>Rolling the dice</h1>
+        {targetScore > 0 && !gameOver ? (
+          <>
+            <table>
+              <TableScore
+                targetScore={targetScore}
+                isHighScore={isHighScore}
+                highScore={highScore}
+                rollResult={highScore}
+                rollsLeft={rollsLeft}
+              />
+            </table>
+            <button onClick={rollDice} aria-busy={rolling}>
+              ROLL DICE
+            </button>
+          </>
+        ) : (
+          <button onClick={startSession}>START A NEW GAME</button>
+        )}
+      </article>
+    </main>
   );
 };
 

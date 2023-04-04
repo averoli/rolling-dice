@@ -1,6 +1,5 @@
 import "./App.css";
-import { useState } from "react";
-import DiceRoller from "./DiceRoller";
+import DiceRoller from "./dice_roller/DiceRoller";
 
 function App() {
 
@@ -13,16 +12,11 @@ function App() {
   
   return (
     <div className="container-fluid">
-      <main className="container">
-        <article>
-          <h1>Rolling the dice</h1>
           <DiceRoller
             numberOfDices={numberOfDices}
             numberOfRolls={numberOfRolls}
             onGameOver={handleGameOver}
           />
-        </article>
-      </main>
     </div>
   );
 }
