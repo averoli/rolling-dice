@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import TableScore from "../table_score/TableScore";
 import "@picocss/pico";
@@ -17,18 +17,21 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
   const max = numberOfDices * 6;
   const target = Math.floor(Math.random() * (max - min + 1) + min);
 
-  const updateHighScore = (score) => {
-    if (score > highScore) {
-      setHighScore(score);
-    }
-    if (highScore > targetScore) {
-      setIsHighScore(true);
-    }
-  };
+  const updateHighScore = useCallback(
+    (score) => {
+      if (score > highScore) {
+        setHighScore(score);
+      }
+      if (highScore > targetScore) {
+        setIsHighScore(true);
+      }
+    },
+    [highScore, setHighScore, targetScore]
+  );
 
   useEffect(() => {
     updateHighScore(rollResult);
-  }, [rollResult, highScore]);
+  }, [rollResult, updateHighScore]);
 
   const startSession = () => {
     setTargetScore(target);
