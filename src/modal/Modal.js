@@ -6,7 +6,7 @@ export const Modal = ({ modalIsOpen, closeModal, highScore }) => {
     <dialog open={modalIsOpen}>
       <article>
         <h2>GAME OVER</h2>
-        <h3>Your high score is {highScore}</h3>
+        <h3>Your high score is <span className="score">{highScore}</span></h3>
         <button onClick={closeModal}>x</button>
       </article>
     </dialog>
