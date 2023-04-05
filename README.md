@@ -5,7 +5,7 @@ The DiceRoller component is a flexible and reusable React component that can be 
 The DiceRoller component used a Prop Types to ensure that the parent component passes the required props.
 Used React Hooks such as useState and useEffect to manage the state and lifecycle of the component. 
 
-![Tux, the Linux mascot](/img/screenshot.png)
+![Tux, the Linux mascot](/scr/img/screenshot.png)
 <!-- GETTING STARTED -->
 ## Getting Started
 
