@@ -29,10 +29,10 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
   useEffect(() => {
     updateHighScore(rollResult);
     if (rollsLeft === 0) {
-      setGameOver(true);
       onGameOver(highScore);
+      setGameOver(true);
     }
-  }, [rollResult, highScore, rollsLeft, onGameOver]);
+  }, [rollResult, highScore, rollsLeft]);
 
   const startSession = () => {
     setTargetScore(target);
