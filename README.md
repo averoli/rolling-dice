@@ -2,7 +2,7 @@
 
 The DiceRoller component is a flexible and reusable React component that can be configured with the props adnd callBack function.
 
-### To implement the reusable DiceRoller component in your application, you can follow these steps:
+### To implement DiceRoller component in your application, you can follow these steps:
 
 1. Install the Prop Types package to ensure that the parent component passes the required props to the DiceRoller component.
 2. Import the DiceRoller component into your application.
