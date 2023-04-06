@@ -3,7 +3,7 @@
 The DiceRoller component is a flexible and reusable React component that can be configured with the number of dices and rolls through props passed by its parent component. It also includes some logic to generate random numbers and has a child view component called TableScore.
 
 The DiceRoller component used a Prop Types to ensure that the parent component passes the required props.
-Used React Hooks such as useState and useEffect to manage the state and lifecycle of the component. 
+Used React Hooks such as useState, useEffect and useCallback to manage the state and lifecycle of the component.
 
 ![Tux, the Linux mascot](https://github.com/averoli/rolling-dice/blob/main/src/img/screenshot.png)
 <!-- GETTING STARTED -->
