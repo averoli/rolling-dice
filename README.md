@@ -1,6 +1,6 @@
 # React App Rolling the dice
 
-The DiceRoller component is a flexible and reusable React component that can be configured with the props adnd callBack function.
+The DiceRoller component is a flexible and reusable React component that can be configured with the props and callback function.
 
 ### To implement DiceRoller component in your application, you can follow these steps:
 
