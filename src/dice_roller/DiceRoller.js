@@ -5,6 +5,13 @@ import "@picocss/pico";
 import "./diceRoller.css";
 
 const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
+  
+  const target = () =>
+    Math.floor(
+      Math.random() * (numberOfDices * 6 - numberOfDices + 1) + numberOfDices
+    );
+    
+  console.log(target());
   let [rollsLeft, setRollsLeft] = useState(numberOfRolls);
   const [targetScore, setTargetScore] = useState(0);
   const [rollResult, setRollResult] = useState(0);
@@ -12,10 +19,6 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
   const [gameOver, setGameOver] = useState(false);
   const [rolling, setRolling] = useState(false);
   const [isHighScore, setIsHighScore] = useState(false);
-
-  const min = numberOfDices;
-  const max = numberOfDices * 6;
-  const target = Math.floor(Math.random() * (max - min + 1) + min);
 
   const updateHighScore = useCallback(
     (score) => {
@@ -65,7 +68,7 @@ const DiceRoller = ({ numberOfDices, numberOfRolls, onGameOver }) => {
                 targetScore={targetScore}
                 isHighScore={isHighScore}
                 highScore={highScore}
-                rollResult={highScore}
+                rollResult={rollResult}
                 rollsLeft={rollsLeft}
               />
             </table>
